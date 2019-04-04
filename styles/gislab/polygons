@@ -19,41 +19,48 @@ aeroway=heliport [0x07 resolution 20]
 aeroway=helipad [0x0e resolution 22]
 aeroway=terminal [0x07 resolution 22]
 
-amenity=kindergarten [0x0a resolution 22]
+amenity=kindergarten & building!=* [0x0a resolution 22]
 amenity=cafe | amenity=fast_food | amenity=restaurant [0x08 resolution 24]
 amenity=food_court [0x08 resolution 22]
-amenity=college [0x0a resolution 22]
+amenity=college & building!=* [0x0a resolution 22]
 parking=underground | parking=multi-storey [0x06 resolution 22]
 amenity=parking | parking=surface [0x05 resolution 22]
 amenity=prison [0x04 resolution 22]
-amenity=school [0x0a resolution 22]
+amenity=school & building!=* [0x0a resolution 22]
 # amenity=supermarket is superceded by shop=supermarket or landuse=retail
 amenity=supermarket [0x08 resolution 22]
-amenity=university [0x0a resolution 21]
+amenity=university & building!=* [0x0a resolution 21]
 
-healthcare=hospital | amenity=hospital | amenity=clinic [0x0b resolution 22]
-healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home [0x0b resolution 23]
+boundary=forestry_compartment | boundary=forest_compartment [0x1d level 1-2]
+
+(healthcare=hospital | amenity=hospital | amenity=clinic) & building!=* [0x0b resolution 22]
+(healthcare=* | amenity=dentist | amenity=doctors | amenity=nursing_home) & building!=* [0x0b resolution 23]
 
 leisure=common [0x17 resolution 21]
 leisure=garden [0x17 resolution 21]
 leisure=golf_course [0x18 resolution 21]
 leisure=ice_rink [0x19 resolution 22]
-leisure=nature_reserve [0x16 resolution 19]
+leisure=miniature_golf [0x18 resolution 21]
+leisure=nature_reserve | boundary=national_park [0x14 level 2-4]
 leisure=park [0x17 resolution 20]
-leisure=pitch [0x19 resolution 21]
+leisure=pitch [0x18 resolution 21]
 leisure=playground [0x17 resolution 22]
 leisure=recreation_ground [0x19 resolution 21]
 leisure=sports_center | leisure=sports_centre [0x19 resolution 20]
-leisure=stadium [0x19 resolution 20]
+leisure=stadium [0x18 resolution 20]
+leisure=swimming_pool [0x45 resolution 20]
 leisure=track & area=yes [0x19 resolution 21]
 leisure=water_park [0x09 resolution 21]
 
 place=city [0x01 level 4]
+place=locality & abandoned:place!=* [0x1d level 1]
 place=town [0x02 level 3]
 place=village | place=hamlet | place=isolated_dwelling [0x03 level 2]
 place=suburb [0x02 resolution 19]
 
 shop=* {add name='${shop|subst:"_=> "}'} [0x08 resolution 22]
+
+sport=* [0x19 resolution 22]
 
 # squares and plazas
 place=square [0x17 resolution 22]
@@ -83,6 +90,7 @@ natural=mud [0x51 resolution 20]
 natural=shoal & surface!=peblestone & surface!=stone [0x53 resolution 20]
 natural=tundra [0x52 resolution 20]
 natural=wetland [0x51 resolution 20]
+natural=water & intermittent=yes [0x47 level 1]
 natural=water & water=canal [0x48 resolution 22]
 natural=water & water=lock [0x4c resolution 22 default_name 'Lock']
 natural=water & area_size() < 10000     [0x41 level 1]  # Small Lake
@@ -112,9 +120,9 @@ landuse=parking_garage [0x06 level 1]
 landuse=quarry [0x011005 level 2]
 landuse=recreation_ground [0x19 resolution 19]
 # dedicate resolution 24 for building=* instead of related landuse=*
-landuse=industrial [0x0c level 1]
+landuse=industrial [0x0c level 1-2]
 landuse=residential [0x010f02 level 1]
-landuse=retail [0x08 resolution 20-23]
+landuse=retail & building!=* [0x08 resolution 20-23]
 landuse=village_green [0x17 resolution 20]
 landuse=vineyard [0x4e resolution 20]
 landuse=orchard [0x4e resolution 20]
@@ -130,6 +138,8 @@ natural=wood [0x50 level 5]
 natural=grassland & area_size() < 100000 [0x011002 level 3]  
 natural=grassland [0x011002 level 5]
 
+power=* & building!=* [0x0c level 1-2]
+
 wetland=fen & area_size() < 100000 [0x4f level 3]  
 wetland=fen [0x4f level 5]
 
@@ -139,11 +149,12 @@ building=* & building!=no [0x13 resolution 24]
 tourism=* & area!=no & waterway!=* {add name='${tourism|subst:"_=> "}'} [0x1f resolution 24]
 
 # man_made can be used on areas or lines
+man_made=water_works [0x0c level 1-2]
 man_made=* & area!=no {add name='${man_made|subst:"_=> "}'} [0x13 resolution 24]
 
 # render small named islands
-place=island & name=* & area_size() < 1000000 [0x53 resolution 19]
-place=islet & name=* [0x53 resolution 20]
+place=island & name=* & area_size() < 1000000 [0x1c resolution 19]
+place=islet & name=* [0x1c resolution 20]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches

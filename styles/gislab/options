@@ -10,6 +10,6 @@
 levels = 0:24, 1:22, 2:20, 3:18, 4:16, 5:15
 
 #overview-levels = 4:17, 5:16, 6:15, 7:14, 8:12 
-overview-levels =  6:12
+overview-levels =  6:14 7:13
 #extra-used-tags= 
 
