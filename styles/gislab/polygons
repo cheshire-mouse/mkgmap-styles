@@ -107,7 +107,7 @@ waterway=* & waterway!=no & area!=no {add name='${waterway|subst:"_=> "}'} [0x3b
 
 landuse=allotments [0x010f0a level 1]
 landuse=cemetery | landuse=cemetary | amenity=grave_yard [0x1a resolution 21]
-landuse=commercial [0x0c resolution 19]
+landuse=commercial [0x010f04 level 1-2]
 landuse=construction [0x0c resolution 21]
 landuse=farm | landuse=farmland [0x011006 level 2]
 landuse=farmyard [0x10f07 level 1]
