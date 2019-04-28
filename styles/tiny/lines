@@ -130,7 +130,17 @@ highway=secondary_link & mkgmap:fast_road=yes [0x08 road_class=3 road_speed=1 re
 highway=secondary_link [0x08 road_class=2 road_speed=1 resolution 22]
 highway=tertiary [0x03 road_class=1 road_speed=3 resolution 20]
 highway=tertiary_link [0x08 road_class=1 road_speed=1 resolution 22]
+highway=unclassified [0x06 road_class=0 road_speed=3 resolution 21]
+highway=living_street [0x06 road_class=0 road_speed=1 resolution 22]
+highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
 
+highway=service & service!=parking_isle & living_street!=* [0x07 road_class=0 road_speed=2 resolution 22]
+highway=path [0x16 road_class=0 road_speed=0 resolution 23]
+highway=track [0x0a road_class=0 road_speed=1 resolution 22]
+
+railway=rail & !(service=*) & !(tunnel=yes) [0x14 resolution 22]
+
+waterway=river [0x1f resolution 18]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
@@ -151,7 +161,7 @@ mkgmap:bicycle=yes & (mkgmap:foot=no & mkgmap:car=no & mkgmap:street!=* | mkgmap
 highway=primary                        & ref=* {name '${ref|highway-symbol:box}' ; addlabel '${name}'}
 (highway=secondary | highway=tertiary) & ref=* {name '${ref|highway-symbol:oval}'; addlabel '${name}'}
 
-name=* {name '${name}'}
+#name=* {name '${name}'}
 highway=* & ref=* & highway!=motorway & highway!=trunk & highway!=primary & highway!=secondary & highway!=tertiary
     {addlabel '${ref}'}
 
