@@ -24,7 +24,7 @@ place=town & population >    999 & name=* [0x0a00 resolution 19]
 place=town & population >      0 & name=* [0x0b00 resolution 20]
 place=town                       & name=* [0x0800 resolution 19]
 
-place=village                    & name=* [0x0900 resolution 22]
+place=village                    & name=* [0x0900 resolution 20]
 place=hamlet                     & name=* [0x0b00 resolution 24]
 #place=suburb | place=neighbourhood [0x2800 level 1]
 #place=locality & abandoned:place!=* [0x2800 level 1]

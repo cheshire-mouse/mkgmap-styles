@@ -8,8 +8,8 @@ natural=water & intermittent=yes [0x47 resolution 20]
 natural=water & water=canal [0x48 resolution 22] 
 natural=water & water=lock [0x4c resolution 22]
 natural=water & area_size() < 10000     [0x41 resolution 22]  # Small Lake
-natural=water & area_size() < 1000000   [0x3f resolution 20]  
-natural=water & area_size() < 100000000 [0x3f resolution 18]  
+natural=water & area_size() < 10000000   [0x3f resolution 20]  
+#natural=water & area_size() < 100000000 [0x3f resolution 18]  
 natural=water [0x3c resolution 15]
 natural=waterfall | waterway=waterfall [0x47 resolution 21] 
 
