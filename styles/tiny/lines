@@ -87,22 +87,22 @@ highway=path & foot=designated
     {set highway=footway}
 
 # Roundabouts
-junction=roundabout & (highway=trunk | highway=trunk_link) [0x0c road_class=4 road_speed=2 resolution 20 ]
+#junction=roundabout & (highway=trunk | highway=trunk_link) [0x0c road_class=4 road_speed=2 resolution 20 ]
 #junction=roundabout & (highway=trunk | highway=trunk_link) [0x10801 resolution 18]
 
-junction=roundabout & (highway=primary | highway=primary_link) & mkgmap:fast_road=yes [0x0c road_class=4 road_speed=2 resolution 20 ]
+#junction=roundabout & (highway=primary | highway=primary_link) & mkgmap:fast_road=yes [0x0c road_class=4 road_speed=2 resolution 20 ]
 #junction=roundabout & (highway=primary | highway=primary_link) & mkgmap:fast_road=yes [0x10802 resolution 19]
 
-junction=roundabout & (highway=primary | highway=primary_link) [0x0c road_class=3 road_speed=2 resolution 20 ]
+#junction=roundabout & (highway=primary | highway=primary_link) [0x0c road_class=3 road_speed=2 resolution 20 ]
 #junction=roundabout & (highway=primary | highway=primary_link) [0x10802 resolution 19]
 
-junction=roundabout & (highway=secondary | highway=secondary_link) & mkgmap:fast_road=yes [0x0c road_class=3 road_speed=2 resolution 20 ]
+#junction=roundabout & (highway=secondary | highway=secondary_link) & mkgmap:fast_road=yes [0x0c road_class=3 road_speed=2 resolution 20 ]
 #junction=roundabout & (highway=secondary | highway=secondary_link) & mkgmap:fast_road=yes [0x10803 resolution 20]
 
-junction=roundabout & (highway=secondary | highway=secondary_link) [0x0c road_class=2 road_speed=2 resolution 20 ]
+#junction=roundabout & (highway=secondary | highway=secondary_link) [0x0c road_class=2 road_speed=2 resolution 20 ]
 #junction=roundabout & (highway=secondary | highway=secondary_link) [0x10803 resolution 20]
 
-junction=roundabout & (highway=tertiary | highway=tertiary_link) [0x0c road_class=1 road_speed=1 resolution 20 ]
+#junction=roundabout & (highway=tertiary | highway=tertiary_link) [0x0c road_class=1 road_speed=1 resolution 20 ]
 #junction=roundabout & (highway=tertiary | highway=tertiary_link) [0x10804 resolution 21]
 
 
@@ -139,15 +139,15 @@ highway=living_street & mkgmap:admin_level7!=* [0x06 road_class=0 road_speed=1 r
 highway=residential & ref=* [0x06 road_class=0 road_speed=3 resolution 20]
 highway=residential [0x06 road_class=0 road_speed=2 resolution 22]
 
-highway=service & mkgmap:admin_level7!=* [0x07 road_class=0 road_speed=2 resolution 22]
-highway=service [0x07 road_class=0 road_speed=2 resolution 24]
+#highway=service & mkgmap:admin_level7!=* [0x07 road_class=0 road_speed=2 resolution 22]
+highway=service & service!=parking_aisle [0x07 road_class=0 road_speed=2 resolution 22]
 highway~'(path|footway)' & mkgmap:admin_level7!=* [0x16 road_class=0 road_speed=0 resolution 24]
 #highway=track & mkgmap:admin_level7!=* & !(tracktype~'grade[1-3]') & mkgmap:unpaved=1 & smoothness~'.*(horrible|impassable)' [0x16 road_class=0 road_speed=0 resolution 24]
 #highway=track & mkgmap:admin_level7!=* [0x0a road_class=0 road_speed=1 resolution 20]
 highway=track & !(tracktype~'grade[1-3]') & mkgmap:unpaved=1 & smoothness~'.*(horrible|impassable)' [0x16 road_class=0 road_speed=0 resolution 24]
 highway=track [0x0a road_class=0 road_speed=1 resolution 22]
 
-railway=rail & !(service=*) & !(tunnel=yes) [0x14 resolution 14]
+railway=rail & !(service=*) & !(tunnel=yes) [0x14 resolution 20]
 
 waterway=river [0x1f resolution 20]
 waterway=stream [0x18 resolution 24]
